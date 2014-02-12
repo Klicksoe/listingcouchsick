@@ -1,0 +1,19 @@
+{% extends "layout.twig" %}
+
+{%  block content %}
+
+<div class="row">
+	<h2 class="align-center">{{ movie.movie.library.titles[0].title }}</h2>
+	<p>Ce film est composé de plusieurs fichiers. Veuillez les télécharger un par un.</p>
+{% for file in parts %}
+	<div class="col-md-9 extraneous-non-semantic-markup">
+		<p>{{file.path|convert_encoding('ISO-8859-1', 'UTF-8') }}</p>
+	</div>
+	<div class="col-md-1">
+		{% if config.couchpotato.permit_download %}
+		<a href="{{ config.render.site_http }}/films/telecharger/{{ movie.movie.id }}/{{ file.id }}" class="glyphicon glyphicon-download"></a>
+		{% endif %}
+	</div>
+{% endfor %}
+</div>
+{% endblock %}

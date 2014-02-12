@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <title>Listing Films / Séries</title>
+        <link href="{{ config.render.site_http }}/themes/bootstrap/favicon.ico" rel="icon" type="image/x-icon" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.8.4/jquery.lazyload.min.js"></script>
+		<script type="text/javascript">
+		$(function() {
+	    	$("img.lazy").lazyload();
+	    	$("img.lazyseries").lazyload();
+	    });
+		</script>
+		<style>
+		body { padding-top: 70px; }
+		h2 { margin-top:0px; }
+		p { text-align:justify; }
+		.row { margin-bottom:20px; }
+		.lazy { max-height:150px; max-width:100px; }
+		.lazyseries { max-width:300px; }
+		.extraneous-non-semantic-markup { margin: 0px 10px; }
+		.bs-glyphicons .glyphicon { display: inline-block; margin:5px; font-size: 25px; }
+		a.glyphicon:hover { text-decoration:none; }
+		</style>
+    </head>
+    <body>
+	
+
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Listing</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="{{ config.render.site_http }}/index">Home</a></li>
+					{% if config.couchpotato.active %}
+					<li class="dropdown{% if focus == 'films' %} active{% endif %}">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Films <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="{{ config.render.site_http }}/films/home">Liste complète</a></li>
+							<li><a href="{{ config.render.site_http }}/films/derniers">Derniers ajouts</a></li>
+						</ul>
+					</li>
+					{% endif %}
+					{% if config.sickbeard.active %}
+					<li class="dropdown{% if focus == 'series' %} active{% endif %}">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Séries <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="{{ config.render.site_http }}/series/home">Liste complète</a></li>
+							<li><a href="{{ config.render.site_http }}/series/derniers">Derniers épisodes</a></li>
+						</ul>
+					</li>
+					{% endif %}
+					{% if config.musiques.active %}
+					<li><a href="{{ config.render.site_http }}/{{ config.musiques.subfolder }}/" target="_blank">Musiques</a></li>
+					{% endif %}
+					{% if config.grooveshark.active %}
+					<li{% if focus == 'grooveshark' %} class="active"{% endif %}><a href="{{ config.render.site_http }}/grooveshark/home">Grooveshark</a></li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		{% block content %}{% endblock %}
+	</div>
+</body>
+</html>

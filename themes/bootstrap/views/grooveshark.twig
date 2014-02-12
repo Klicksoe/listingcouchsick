@@ -1,0 +1,16 @@
+{% extends "layout.twig" %}
+
+{%  block content %}
+<div class="text-center">
+<object width="250" height="250" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsPlaylist" name="gsPlaylist">
+	<param name="movie" value="http://grooveshark.com/widget.swf" />
+	<param name="wmode" value="window" />
+	<param name="allowScriptAccess" value="always" />
+	<param name="flashvars" value="hostname=grooveshark.com&playlistID={{ config.grooveshark.playlist }}&p=0&bbg=000000&bth=000000&pfg=000000&lfg=000000&bt=FFFFFF&pbg=FFFFFF&pfgh=FFFFFF&si=FFFFFF&lbg=FFFFFF&lfgh=FFFFFF&sb=FFFFFF&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" />
+	<object type="application/x-shockwave-flash" data="http://grooveshark.com/widget.swf" width="500" height="500">
+		<param name="wmode" value="window" /><param name="allowScriptAccess" value="always" />
+		<param name="flashvars" value="hostname=grooveshark.com&playlistID={{ config.grooveshark.playlist }}&p=0&bbg=000000&bth=000000&pfg=000000&lfg=000000&bt=FFFFFF&pbg=FFFFFF&pfgh=FFFFFF&si=FFFFFF&lbg=FFFFFF&lfgh=FFFFFF&sb=FFFFFF&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" />
+	</object>
+</object>
+</div>
+{% endblock %}

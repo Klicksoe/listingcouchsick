@@ -1,0 +1,7 @@
+Options +FollowSymlinks -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /
+    RewriteRule ^([A-Za-z0-9]+)?/?([A-Za-z0-9]+)?/?([A-Za-z0-9/\+_-]+)?$ app.php?env=prod&p=$1&f=$2&args=$3 [QSA,NC,L]
+</IfModule>
