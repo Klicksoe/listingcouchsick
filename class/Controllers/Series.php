@@ -85,18 +85,5 @@ class Series extends Controller {
 				'files'	=> $files
 		));
 	}
-	
-	
-	function telecharger($value) {
-		global $twig;
-		global $config;
-
-		if (!isset($_GET['file']) || empty($_GET['file']) && is_file($_GET['file'])) {
-			header("Location:".$config['render']['site_http'].'/series/home');
-		}
-		
-		header("Location:".$config['render']['site_http'].urldecode($_GET['file']));
-		
-	}
 
 }
