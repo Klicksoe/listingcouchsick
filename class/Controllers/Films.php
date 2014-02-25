@@ -108,5 +108,25 @@ class Films extends Controller {
 			
 		}
 	}
+	
+	
+	function ajax($value) {
+		global $twig;
+		global $config;
+
+		$movie = file_get_contents($config['couchpotato']['api_url'].'/'.$config['couchpotato']['api_key'].'/movie.get?id='.$value[0]);
+		$movie = json_decode($movie);
+		
+		$files = array();
+		foreach($movie->movie->releases as $releases) {
+			if (count($releases->files) > 0) {
+				foreach($releases->files as $file) {
+					if ($file->type_id == 6) {
+						echo $config['render']['site_http'].$file->path;
+					}
+				}
+			}
+		}
+	}
 
 }

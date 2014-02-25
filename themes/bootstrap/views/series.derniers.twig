@@ -4,7 +4,7 @@
 {% for episodes in data %}
 <div class="row">
 	<div class="col-md-3 extraneous-non-semantic-markup">
-		<a href="{{ config.render.site_http }}/series/infos/{{ episodes.data.tvdbid }}"><img class="lazyseries" src="{{ config.render.site_http }}/series/image/{{ episodes.data.tvdbid }}" alt="{{ episodes.data.show_name }}" /></a>
+		<a href="{{ config.render.site_http }}/series/infos/{{ episodes.data.tvdbid }}"><img class="lazyseries" data-original="{{ config.render.site_http }}/series/image/{{ episodes.data.tvdbid }}" alt="{{ episodes.data.show_name }}" /></a>
 	</div>
 	<div class="col-md-7 extraneous-non-semantic-markup">
 		<h2><a href="{{ config.render.site_http }}/series/infos/{{ episodes.data.tvdbid }}">{{ episodes.data.show_name }}</a></h2>
@@ -13,7 +13,7 @@
 	</div>
 	<div class="col-md-1 bs-glyphicons">
 		{% if config.sickbeard.permit_download %}
-		<a target="_blank" href="{{ config.render.site_http }}/series/regarder/?file={{ episodes.file.location|url_encode }}" class="glyphicon glyphicon-download"></a>
+		<a target="_blank" href="{{ config.render.site_http }}/series/telecharger/?file={{ episodes.file.location|url_encode }}" class="glyphicon glyphicon-download"></a>
 		<span class="label" style="color:#428bca;">Clic droit,<br />enregistrer sous.</span>
 		{% endif %}		
 	</div>

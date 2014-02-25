@@ -4,7 +4,7 @@
 {% for key, serie in data %}
 <div class="row">
 	<div class="col-md-3 extraneous-non-semantic-markup">
-		<a href="{{ config.render.site_http }}/series/infos/{{ serie.id }}"><img class="lazyseries" src="{{ config.render.site_http }}/series/image/{{ serie.id }}" alt="{{ serie.title }}" /></a>
+		<a href="{{ config.render.site_http }}/series/infos/{{ serie.id }}"><img class="lazyseries" data-original="{{ config.render.site_http }}/series/image/{{ serie.id }}" alt="{{ serie.title }}" /></a>
 	</div>
 	<div class="col-md-7 extraneous-non-semantic-markup">
 		<a href="{{ config.render.site_http }}/series/infos/{{ serie.id }}"><h2>{{ serie.title }}</h2></a>

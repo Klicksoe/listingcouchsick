@@ -28,7 +28,7 @@
 				<td width="90%">{{ episode }}</td>
 				{% set path = data.location ~ "/" ~ episode %}
 				{% if config.sickbeard.permit_download %}
-				<td class="text-center"><a href="{{ config.render.site_http }}/{{ path|url_encode }}" class="glyphicon glyphicon-download"></a></td>
+				<td class="text-center"><a target="_blank" href="{{ config.render.site_http }}/series/telecharger/?file={{ path|url_encode }}" class="glyphicon glyphicon-download"></a></td>
 				{% endif %}
 			</tr>
 		{% endfor %}

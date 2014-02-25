@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # CONFIGURATION
-API_URL="http://localhost:5050/couchpotato/api/63cb0e6cdc9e48d4a92599ee7804fcbf/"
+API_URL="http://localhost:5050/couchpotato/api/API_KEY/"
 DIR_PATH="/var/www/tmp/"
 
 
