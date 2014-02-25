@@ -29,3 +29,9 @@ $config['musiques']['subfolder']			= 'music'; // ProxyPassed URL. Link to sockso
 // Configuration propre à Grooveshark
 $config['grooveshark']['active']			= true;
 $config['grooveshark']['playlist']			= ''; // ID of your Grooveshark playlist
+
+// configuration du menu supplémentaire
+$config['menu'][0]['folder']				= 'ebooks';
+$config['menu'][0]['name']					= 'Ebooks';
+$config['menu'][1]['folder']				= 'others';
+$config['menu'][1]['name']					= 'Autres';

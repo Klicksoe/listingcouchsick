@@ -63,6 +63,9 @@
 					{% if config.grooveshark.active %}
 					<li{% if focus == 'grooveshark' %} class="active"{% endif %}><a href="{{ config.render.site_http }}/grooveshark/home">Grooveshark</a></li>
 					{% endif %}
+					{% for menu in config.menu %}
+					<li><a href="{{ config.render.site_http }}/{{ menu.folder }}/" target="_blank">{{ menu.name }}</a></li>
+					{% endfor %}
 				</ul>
 			</div>
 		</div>
