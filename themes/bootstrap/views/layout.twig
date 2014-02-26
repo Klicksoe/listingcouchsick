@@ -83,7 +83,7 @@
 					</li>
 					{% endif %}
 					{% if config.musiques.active %}
-					<li><a href="{{ config.render.site_http }}/{{ config.musiques.subfolder }}/" target="_blank">Musiques</a></li>
+					<li><a href="{{ config.render.site_http }}/{{ config.musiques.subfolder }}" target="_blank">Musiques</a></li>
 					{% endif %}
 					{% if config.grooveshark.active %}
 					<li{% if focus == 'grooveshark' %} class="active"{% endif %}><a href="{{ config.render.site_http }}/grooveshark/home">Grooveshark</a></li>
