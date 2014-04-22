@@ -66,14 +66,16 @@ class Films extends Controller {
 		$movie = json_decode($movie);
 		
 		$files = array();
-		foreach($movie->movie->releases as $releases) {
+		foreach($movie->media->releases as $releases) {
 			if (count($releases->files) > 0) {
 				foreach($releases->files as $file) {
 					if ($releases->_t == "release") {
-						$files[] = array(
-							'id'	=> $releases->_id,
-							'path'	=> $file->movie[0]
-						);
+						foreach ($file as $movie) {
+							$files[] = array(
+								'id'    => $releases->_id,
+								'path'  => $movie
+							);
+						}
 					}
 				}
 			}
