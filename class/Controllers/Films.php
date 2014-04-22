@@ -69,9 +69,9 @@ class Films extends Controller {
 		foreach($movie->movie->releases as $releases) {
 			if (count($releases->files) > 0) {
 				foreach($releases->files as $file) {
-					if ($file->_t == "release") {
+					if ($releases->_t == "release") {
 						$files[] = array(
-							'id'	=> $file->_id,
+							'id'	=> $releases->_id,
 							'path'	=> $file->movie[0]
 						);
 					}
@@ -118,11 +118,13 @@ class Films extends Controller {
 		$movie = json_decode($movie);
 		
 		$files = array();
-		foreach($movie->movie->releases as $releases) {
+		foreach($movie->media->releases as $releases) {
 			if (count($releases->files) > 0) {
 				foreach($releases->files as $file) {
-					if ($file->_t == "release") {
-						echo $config['render']['site_http'].$file->->movie[0];
+					if ($releases->_t == "release") {
+						foreach ($file as $movie) {
+							echo $config['render']['site_http'].$movie."\n";
+						}
 					}
 				}
 			}
