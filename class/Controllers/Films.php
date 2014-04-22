@@ -67,8 +67,8 @@ class Films extends Controller {
 		
 		$files = array();
 		foreach($movie->media->releases as $releases) {
-			if (count($releases->files->movie) > 0) {
-				foreach($releases->files->movie as $file) {
+			if (count($releases->files) > 0) {
+				foreach($releases->files as $file) {
 					if ($releases->_t == "release") {
 						foreach ($file as $movie) {
 							$files[] = array(
