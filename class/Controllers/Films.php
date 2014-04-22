@@ -45,7 +45,7 @@ class Films extends Controller {
 				$movies = file_get_contents($config['couchpotato']['api_dir'].$node);
 				$movies = json_decode($movies);
 				foreach ($movies->movies as $movie) {
-					$data[$movie->last_edit] = $movie;
+					$data[$movie->releases[0]->last_edit] = $movie;
 				}
 			}
 		}
