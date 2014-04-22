@@ -32,3 +32,4 @@ rm -f ${DIR_PATH}*
 
 # Déplacement des fichiers fraichement téléchargés
 mv /tmp/couchpotato_api.* ${DIR_PATH}
+chmod 777 tmp/*

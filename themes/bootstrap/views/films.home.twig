@@ -5,20 +5,20 @@
 {% for movie in data %}
 <div class="row">
 	<div class="col-md-1 extraneous-non-semantic-markup">
-		<img class="lazy" data-original="{{ movie.library.info.images.poster[0] }}" alt="{{ movie.library.titles[0].title }}" />
+		<img class="lazy" data-original="{{ movie.info.images.poster[0] }}" alt="{{ movie.title }}" />
 	</div>
 	<div class="col-md-9 extraneous-non-semantic-markup">
-		<h2 style="display: inline-block;">{{ movie.library.titles[0].title }}</h2><div style="display: inline-block; float: right;">Note : <a class="text-right" href="http://www.imdb.com/title/{{ movie.library.info.imdb }}/" target="_blank">{{ movie.library.info.rating.imdb.0 }}</a></div>
-		<p>{{ movie.library.info.plot	 }}</p>
+		<h2 style="display: inline-block;">{{ movie.title }}</h2><div style="display: inline-block; float: right;">{{ movie.releases[0].quality }} - Note : <a class="text-right" href="http://www.imdb.com/title/{{ movie.identifiers.imdb }}/" target="_blank">{{ movie.info.rating.imdb.0 }}</a></div>
+		<p>{{ movie.info.plot	 }}</p>
 		
 	</div>
 	<div class="col-md-1 bs-glyphicons">
 		{% if config.couchpotato.permit_download %}
-		<a href="{{ config.render.site_http }}/films/telecharger/{{ movie.id }}" class="glyphicon glyphicon-download"></a>
+		<a href="{{ config.render.site_http }}/films/telecharger/{{ movie._id }}" class="glyphicon glyphicon-download"></a>
 		<span class="label" style="color:#428bca;">Clic droit,<br />enregistrer sous.</span>
 		{% endif %}
 		{% if config.couchpotato.permit_link %}
-		<a class="glyphicon glyphicon-link copypaste" id="movie-{{ movie.id }}"></a>
+		<a class="glyphicon glyphicon-link copypaste" id="movie-{{ movie._id }}"></a>
 		{% endif %}
 	</div>
 </div>
