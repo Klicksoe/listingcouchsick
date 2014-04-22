@@ -62,17 +62,17 @@ class Films extends Controller {
 		global $twig;
 		global $config;
 
-		$movie = file_get_contents($config['couchpotato']['api_url'].'/'.$config['couchpotato']['api_key'].'/movie.get?id='.$value[0]);
+		$movie = file_get_contents($config['couchpotato']['api_url'].'/'.$config['couchpotato']['api_key'].'/media.get?id='.$value[0]);
 		$movie = json_decode($movie);
 		
 		$files = array();
 		foreach($movie->movie->releases as $releases) {
 			if (count($releases->files) > 0) {
 				foreach($releases->files as $file) {
-					if ($file->type_id == 6) {
+					if ($file->_t == "release") {
 						$files[] = array(
-							'id'	=> $file->id,
-							'path'	=> $file->path
+							'id'	=> $file->_id,
+							'path'	=> $file->movie[0]
 						);
 					}
 				}
@@ -114,15 +114,15 @@ class Films extends Controller {
 		global $twig;
 		global $config;
 
-		$movie = file_get_contents($config['couchpotato']['api_url'].'/'.$config['couchpotato']['api_key'].'/movie.get?id='.$value[0]);
+		$movie = file_get_contents($config['couchpotato']['api_url'].'/'.$config['couchpotato']['api_key'].'/media.get?id='.$value[0]);
 		$movie = json_decode($movie);
 		
 		$files = array();
 		foreach($movie->movie->releases as $releases) {
 			if (count($releases->files) > 0) {
 				foreach($releases->files as $file) {
-					if ($file->type_id == 6) {
-						echo $config['render']['site_http'].$file->path;
+					if ($file->_t == "release") {
+						echo $config['render']['site_http'].$file->->movie[0];
 					}
 				}
 			}
